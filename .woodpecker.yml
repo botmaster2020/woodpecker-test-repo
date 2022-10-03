@@ -1,8 +1,3 @@
-clone:
-  git:
-    image: plugins/git
-    depth: 1
-
 pipeline:
   build:
     image: devforth/drone-builder
@@ -11,3 +6,5 @@ pipeline:
     commands:
       - ls -a
       - /bin/bash build.sh
+      
+branches: master
