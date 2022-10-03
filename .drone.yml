@@ -6,3 +6,6 @@ pipeline:
     commands:
       - ls -a
       - /bin/bash build.sh
+     when:
+      branch:
+        - master
