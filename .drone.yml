@@ -1,9 +1,12 @@
+clone:
+  git:
+    image: plugins/git
+    depth: 1
+
 pipeline:
   build:
-    image: debian
+    image: devforth/drone-builder
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     commands:
-      - echo "This is the build step"
-  a-test-step:
-    image: debian
-    commands:
-      - echo "Testing.."
+      - cd deploy && /bin/bash build.sh
