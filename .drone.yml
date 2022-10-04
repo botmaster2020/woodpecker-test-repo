@@ -1,17 +1,10 @@
-kind: pipeline
-type: docker
-name: tr
-
-steps:
-  - name: build
+pipeline:
+  build:
     image: devforth/drone-builder
     volumes:
-    - name: dockerpath
-      path: - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock
     commands:
       - ls -a
       - /bin/bash build.sh
       
-    when:
-      branch:
-        - master
+branches: master
